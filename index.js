@@ -5,7 +5,7 @@ const passport = require("passport");
 const authRouter = require("./src/routes/authRouter");
 const apiRouter = require("./src/routes/index");
 
-const { connect } = require("./src/confif/database");
+const { connect } = require("./src/config/database");
 require("./src/util/auth");
 const app = express();
 
