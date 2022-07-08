@@ -12,10 +12,6 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    username: {
-      type: String,
-      required: true,
-    },
   },
   { timestamps: true }
 );
@@ -27,7 +23,7 @@ userSchema.pre("save", async function (next) {
   next();
 });
 
-userSchema.method.isValidPassword = async function checkValidity(password) {
+userSchema.methods.isValidPassword = async function checkValidity(password) {
   const user = this;
   const compare = await bcrypt.compare(password, user.password);
   return compare;
