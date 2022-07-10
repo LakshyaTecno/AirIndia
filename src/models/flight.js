@@ -19,15 +19,11 @@ const flightSchema = new mongoose.Schema(
       required: true,
       ref: "Airline",
     },
-    flightDate: {
-      type: Date,
-      default: Date.now,
-    },
     departureTime: {
-      type: Timestamp,
+      type: String,
     },
     arrivalTime: {
-      type: Timestamp,
+      type: String,
     },
     flightNumber: {
       type: String,
