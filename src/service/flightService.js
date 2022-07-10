@@ -51,15 +51,45 @@ const getFlight = async (flightNumber) => {
   }
 };
 
-const getAllFlight = async () => {
+const getAllFlight = async (data) => {
   try {
-    const response = Flight.find();
-
+    console.log(data);
+    let response;
+    if (data.price && data.sort) {
+      if (data.sort == "inc") {
+        response = await Flight.find().sort("price");
+      } else {
+        response = await Flight.find().sort("-price");
+      }
+    } else if (data.duration && data.sort) {
+      response = await Flight.find().sort("duration");
+    } else {
+      response = await Flight.find();
+    }
+    console.log(response);
     return response;
   } catch (err) {
-    cosole.log(err);
+    console.log(err);
   }
 };
+
+// const getAllFlight = async (data) => {
+//   try {
+//     //  let response;
+//     //   if (data.price && data.sort) {
+//     //     response = await Flight.find().sort("price");
+//     //   } else if (data.duration && data.sort) {
+//     //     response = await Flight.find().sort("duration");
+//     //   } else {
+//     //     response = await Flight.find();
+//     //   }
+
+//     const response = await Flight.find();
+//     return response;
+//   } catch (err) {
+//     console.log(err);
+//   }
+// };
 module.exports = {
   createFlight,
   updateFlight,
