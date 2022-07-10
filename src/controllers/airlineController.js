@@ -54,7 +54,9 @@ const deleteAirline = async (req, res) => {
 const getAirline = async (req, res) => {
   try {
     const airline = await AirlineService.getAirline(req.params.name);
-    // console.log(req.params.name);
+    console.log("@@@@@@@@@");
+    console.log(req.params);
+    console.log("@@@@@@@@@");
     res.status(200).json({
       success: true,
       message: "Successfully fetched airline",

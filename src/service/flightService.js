@@ -42,9 +42,12 @@ const destroyFlight = async (flightNumber) => {
   }
 };
 
-const getFlight = async (flightNumber) => {
+const getFlight = async (FlightName) => {
   try {
-    const response = Flight.findOne({ flightNumber: flightNumber });
+    console.log("@@@@@@@@@");
+    console.log(FlightName);
+    console.log("@@@@@@@@@");
+    const response = Flight.findOne({ FlightName: FlightName });
     return response;
   } catch (err) {
     cosole.log(err);

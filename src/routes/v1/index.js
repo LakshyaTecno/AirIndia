@@ -5,6 +5,7 @@ const reviewConroller = require("../../controllers/reviewController");
 
 const flightConroller = require("../../controllers/flightController");
 const helpController = require("../../controllers/helpController");
+const bookController = require("../../controllers/bookingController");
 
 router.get("/help", helpController);
 
@@ -24,5 +25,9 @@ router.post("/review", reviewConroller.createReview);
 router.get("/review/:flightId/:userId", reviewConroller.getReview);
 router.get("/review/:flightId", reviewConroller.getAllReviews);
 router.delete("/review/:flightId", reviewConroller.deleteReview);
+
+router.post("/review", bookController.createBooking);
+router.get("/review/:Id", bookController.getBoardingPass);
+router.delete("/review/:Id", bookController.cancelBooking);
 
 module.exports = router;

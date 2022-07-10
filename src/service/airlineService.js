@@ -34,7 +34,7 @@ const getAirline = async (name) => {
   try {
     console.log(name);
     const response = await Airline.findOne({ name: name });
-    console.log(response);
+    //console.log(response);
     return response;
   } catch (err) {
     console.log(err);

@@ -45,9 +45,9 @@ const getReview = async (user, flight) => {
   }
 };
 
-const getAllReview = async (flight) => {
+const getAllReview = async (flightId) => {
   try {
-    const response = await Review.find({ flight: flight });
+    const response = await Review.find({ flightId: flightId });
     console.log(response);
     return response;
   } catch (err) {
